@@ -1,3 +1,14 @@
 <div class="body-content">
-<h3>投稿の詳細(show)</h3>
+    <p id="notice"><%= notice %></p>
+    <h3>投稿の詳細(show)</h3>
+    <p>
+    <strong>Blog_image:</strong>
+    <%= @blog.blog_image %>
+    </p>
+    <p>
+    <strong>Content:</strong>
+    <%= @blog.content %>
+    </p><br>
+    <%= link_to 'Edit', edit_blog_path(@blog) %> |
+    <%= link_to 'Back', blogs_path %>
 </div>

@@ -1,3 +1,22 @@
 <div class="body-content">
+<p id="notice"><%= notice %></p>
 <h3>プロフィール(user_show)</h3>
+<p>
+  <strong>Name:</strong>
+  <%= @user.name %>
+</p>
+<p>
+  <strong>user_image:</strong>
+  <%= @user.user_image %>
+</p>
+  <strong>PR:</strong>
+  <%= @user.pr %>
+</p>
+  <strong>Address:</strong>
+  <%= @user.address %>
+</p>
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>
+
 </div>
