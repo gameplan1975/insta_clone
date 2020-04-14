@@ -36,7 +36,7 @@ header a {
     padding-left: 15px;
 }
 body{
-    background-color: #FAFAFA;
+    background-color: #fafafa;
     margin: 0px;
 }
 .body-content{
@@ -70,4 +70,16 @@ a:hover{
 }
 #notice {
     color:#00376b;
-  }
+}
+.body-frame{
+    width:640px;
+    background-color: white;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-style: solid;
+    border-radius: 3px;
+    border-width: 1px;
+    border-color:#DADCE0;
+    padding:10px
+}

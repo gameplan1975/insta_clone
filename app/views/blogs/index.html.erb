@@ -1,30 +1,14 @@
 <div class="body-content">
-    <p id="notice"><%= notice %></p>
     <h3>投稿一覧(index)</h3>
-    <table>
-    <thead>
-        <tr>
-        <th>Name</th>
-        <th>Content</th>
-        <th colspan="3"></th>
-        </tr>
-    </thead>
-
-    <tbody>
-        <% @blogs.each do |blog| %>
-        <tr>
-            <td><%= blog.blog_image %></td>
-            <td><%= blog.content %></td>
-            <td><%= link_to 'Show', blog %></td>
-            <td><%= link_to 'Edit', edit_blog_path(blog) %></td>
-            <td><%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        </tr>
-        <% end %>
-    </tbody>
-    </table>
-
-    <br>
-
-    <%= link_to 'New Blog', new_blog_path %>
-
+    <%= link_to '投稿する', new_blog_path %>
+    <% @blogs.each do |blog| %>
+        <div class="body-frame">
+            <%= blog.content %>
+            <%= blog.blog_image %><br>
+            <p style="color:#9f9f9f; text-align:right"><%= blog.updated_at.strftime("%Y-%m-%d %H:%M") %></p>
+            <%= link_to '詳細', blog %>
+            <%= link_to '編集', edit_blog_path(blog) %>
+            <%= link_to '削除', blog, method: :delete, data: { confirm: '削除しますか？' } %>
+        </div>
+    <% end %>
 </div>
