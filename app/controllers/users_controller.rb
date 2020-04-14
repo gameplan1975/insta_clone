@@ -19,7 +19,7 @@ class UsersController < ApplicationController
       @user = User.new(user_params)
   
       if @user.save
-        redirect_to @user, notice: 'User was successfully created.'
+        redirect_to user_path(@user.id), notice: 'ユーザー登録が完了しました'
       else
         render :new
       end
@@ -27,7 +27,7 @@ class UsersController < ApplicationController
   
     def update
       if @user.update(user_params)
-        redirect_to @user, notice: 'User was successfully updated.'
+        redirect_to @user, notice: 'ユーザー情報を更新しました'
       else
         render :edit
       end
@@ -35,7 +35,7 @@ class UsersController < ApplicationController
   
     def destroy
       @user.destroy
-      redirect_to users_url, notice: 'User was successfully destroyed.'
+      redirect_to users_url, notice: 'ユーザー登録を削除しました'
     end
   
     private
@@ -44,6 +44,6 @@ class UsersController < ApplicationController
       end
   
       def user_params
-        params.require(:user).permit(:name, :email, :password_digest, :pr, :address)
+        params.require(:user).permit(:name, :email, :password_digest, :pr, :address, :user_image, :password, :password_confirmation)
       end
 end

@@ -16,6 +16,10 @@
           <li><img src="/assets/plane00.jpg"></li>
           <li><img src="/assets/compass00.jpg"></li>
           <li><img src="/assets/heart00.jpg"></li>
+          <li><% if logged_in? %>
+                <img src="assets/face01.jpg">
+                <%=current_user.name %>
+    　　　    <% end %></li>
         </ul>
       </div>
     </header>
@@ -24,6 +28,9 @@
     <%= yield %>
     </div>
     <footer>
+      <% if logged_in? %>
+        <%=link_to "ログアウト", session_path(current_user.id), method: :delete %>
+      <% end %>
       <p>基本データ　ヘルプ　所在地</p>
       <p style="color:#8e8e8e">© 2020 SONTANAGRAM FROM SONTANA</P>
     </footer>
