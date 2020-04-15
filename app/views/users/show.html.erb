@@ -7,7 +7,7 @@
   <%= @user.name %>
 </p>
 <p>
-  <img src="<%= "/user_images/face00.jpg" %>">
+  <%= image_tag @user.user_image.url %>
 </p>
   <strong>PR:</strong>
   <%= @user.pr %>

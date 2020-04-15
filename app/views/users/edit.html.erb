@@ -13,15 +13,15 @@
         <% end %>
         <div class="field">
             <%= form.label :名前 %>
-            <%= form.text_field :name %>
+            <%= form.text_field :name %><br>
         </div>
         <div class="field">
             <%= form.label :メールアドレス %>
-            <%= form.text_field :email %>
+            <%= form.text_field :email %><br>
         </div>
         <div class="field">
             <%= form.label :アイコン %>
-            <%= form.text_field :user_image %>
+            <%= form.file_field :user_image %><br>
         </div>      
         <div class="field">
             <%= form.label :自己紹介 %>
@@ -29,10 +29,10 @@
         </div>   
         <div class="field">
             <%= form.label :住所 %>
-            <%= form.text_field :address %>
+            <%= form.text_field :address %><br>
         </div>
         <div class="actions">
-            <%= form.submit %>
+            <%= form.submit %><br>
         </div>
     <% end %>
     <%= link_to '詳細', @user %>

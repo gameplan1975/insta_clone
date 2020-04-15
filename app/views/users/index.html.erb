@@ -2,9 +2,12 @@
     <h3>おすすめ(user_index)</h3>
     <% @users.each do |user| %>
         <div class="body-frame">
-            <%= user.name %>
-            <%= user.user_image %>
-            <%= user.pr %>
+            <% if user.user_image? %>
+                <%= image_tag user.user_image.url %>
+            <% end %>
+            <br>
+            <%= user.name %><br>
+            <%= user.pr %><br>
             <%= user.address %><br>
             <%= link_to 'Show', user %>
             <%= link_to 'Edit', edit_user_path(user) %>

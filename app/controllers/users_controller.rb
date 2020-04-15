@@ -19,7 +19,7 @@ class UsersController < ApplicationController
       @user = User.new(user_params)
       @user.user_image = "face00.jpg"
       @user.pr = "自己紹介を書いてください"
-      @user.arrress = "住所を書いてください"
+      @user.address = "住所を書いてください"
         if @user.save
         redirect_to user_path(@user.id), notice: 'ユーザー登録が完了しました'
       else
@@ -46,6 +46,7 @@ class UsersController < ApplicationController
       end
   
       def user_params
-        params.require(:user).permit(:name, :email, :password_digest, :pr, :address, :user_image, :password, :password_confirmation)
+        params.require(:user).permit(:name, :email, :password_digest, :pr, :address, :user_image, :password, :password_confirmation,
+        :user_image, :user_image_cache)
       end
 end
