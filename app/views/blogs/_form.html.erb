@@ -12,7 +12,7 @@
 
   <div class="field">
     <%= form.label :blog_image %>
-    <%= image_tag :blog_image %>
+    <%= form.file_field :blog_image %>
   </div>
 
   <div class="field">
@@ -21,6 +21,7 @@
   </div>
 
   <div class="actions">
+    <br>
     <%= form.submit %>
   </div>
 <% end %>

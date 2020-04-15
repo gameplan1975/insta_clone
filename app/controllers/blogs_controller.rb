@@ -17,9 +17,10 @@ class BlogsController < ApplicationController
   
     def create
       @blog = Blog.new(blog_params)
+      @blog.user_id = current_user.id
   
       if @blog.save
-        redirect_to @blog, notice: 'Blog was successfully created.'
+        redirect_to @blog, notice: 'ブログを投稿しました'
       else
         render :new
       end
@@ -27,7 +28,7 @@ class BlogsController < ApplicationController
   
     def update
       if @blog.update(blog_params)
-        redirect_to @blog, notice: 'Blog was successfully updated.'
+        redirect_to @blog, notice: '投稿を編集しました.'
       else
         render :edit
       end
@@ -35,7 +36,7 @@ class BlogsController < ApplicationController
   
     def destroy
       @blog.destroy
-      redirect_to blogs_url, notice: 'Blog was successfully destroyed.'
+      redirect_to blogs_url, notice: '投稿を削除しました'
     end
   
     private
@@ -44,6 +45,6 @@ class BlogsController < ApplicationController
       end
   
       def blog_params
-        params.require(:blog).permit(:content, :blog_image, :blog_image_cache)
+        params.require(:blog).permit(:content, :blog_image, :blog_image_cache, :user_id)
       end
 end
