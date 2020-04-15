@@ -10,14 +10,16 @@
   <body>
     <header>
     <div class="header-inner">
-      <div class ="header-logo"><img src="/assets/logo.jpg"></div>
+      <div class ="header-logo">
+        <a href="/"><img src="/assets/logo.jpg"></a>
+      </div>
         <ul class ="header-menus">
           <li><img src="/assets/home00.jpg"></li>
           <li><img src="/assets/plane00.jpg"></li>
           <li><img src="/assets/compass00.jpg"></li>
           <li><img src="/assets/heart00.jpg"></li>
           <li><% if logged_in? %>
-                <%=current_user.name %>
+                <%=link_to current_user.name, "/users/#{current_user.id}" %>          
     　　　    <% end %></li>
         </ul>
       </div>
