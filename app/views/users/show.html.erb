@@ -8,9 +8,9 @@
 </p>
 <p>
   <% if @user.user_image? %>
-  <%= image_tag @user.user_image.url %>
+    <%= image_tag @user.user_image.url %>
   <% else %>
-  <img src="/assets/face00.jpg">
+    <img src="/assets/face00.jpg">
   <% end %>
 </p>
   <strong>PR:</strong>
@@ -21,6 +21,8 @@
 </p>
 </div>
 <%= link_to '編集', edit_user_path(@user) %> |
-<%= link_to '一覧', users_path %>
+<%= link_to '一覧', users_path %> |
+<%= link_to 'ブログ一覧', blogs_path %> |
+<%= link_to '新規投稿', new_blog_path %>
 
 </div>

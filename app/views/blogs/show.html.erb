@@ -2,12 +2,15 @@
     <p id="notice"><%= notice %></p>
     <h3>投稿の詳細(show)</h3>
     <p>
+    <% if @blog.blog_image? %>
     <%= image_tag @blog.blog_image.url %>
+    <% end %>
     </p>
     <p>
     <strong>Comment:</strong>
     <%= @blog.content %>
     </p><br>
     <%= link_to '投稿編集', edit_blog_path(@blog) %> |
-    <%= link_to 'ブログ一覧', blogs_path %>
+    <%= link_to 'ブログ一覧', blogs_path %> |
+    <%= link_to '新規投稿', new_blog_path %>
 </div>
