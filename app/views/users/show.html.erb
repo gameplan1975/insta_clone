@@ -28,5 +28,6 @@
   <%= link_to 'ブログ一覧', blogs_path %> |
 <% end %>
 <%= link_to '新規投稿', new_blog_path %>
+<%= link_to 'お気に入り投稿', "/users/#{current_user.id}/like" %>
 
 </div>

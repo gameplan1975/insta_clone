@@ -8,6 +8,12 @@ class UsersController < ApplicationController
   
     def show
     end
+
+    def like
+      @user = User.find_by(id: params[:id])
+      @blogs = Blog.all
+      @favorites = Favorite.where(user_id: @user.id)
+    end
   
     def new
       @user = User.new
@@ -46,7 +52,7 @@ class UsersController < ApplicationController
       def protect
         @blog = Blog.find_by(id:params[:id])
         @blog.user_id != current.user.id
-        redirect_to("/"), notice: "権限がありません"
+        redirect_to("/")
       end 
   
       def user_params

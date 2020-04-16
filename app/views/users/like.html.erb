@@ -1,8 +1,16 @@
 <div class="body-content">
     <p id="notice"><%= notice %></p>
-    <h3>全ユーザーの投稿一覧(List)</h3>
-    <%= link_to '自分の投稿一覧に戻る', blogs_path %>
-    <% @blogs.each do |blog| %>
+    <h3>いいね！した投稿一覧(Like)</h3>
+    <% if @user.id == current_user.id %>
+        <%= link_to 'プロフィール編集', edit_user_path(@user) %> |
+    <% end %>
+    <%= link_to 'ユーザー一覧', users_path %> |
+    <% if @user.id == current_user.id %>
+        <%= link_to 'ブログ一覧', blogs_path %> |
+    <% end %>
+    <%= link_to '新規投稿', new_blog_path %>
+    <% @favorites.each do |favorite| %>
+      <% blog = Blog.find_by(id: favorite.blog_id) %>
         <div class="body-frame">
             <% if blog.blog_image? %>
                 <p><%= image_tag blog.blog_image.url %></P>

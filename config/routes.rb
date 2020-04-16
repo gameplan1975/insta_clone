@@ -4,9 +4,10 @@ Rails.application.routes.draw do
   get "blogs/list" => "blogs#list"
   resources :sessions, only: [:new, :create, :destroy]
   resources :users
+  get "users/:id/like" => "users#like"
   resources :blogs 
   post "favorites/:blog_id/create" => "favorites#create"
-
+  post "favorites/:blog_id/destroy" => "favorites#destroy"
     #resources :blogs do
     #collection do
     #post :confirm

@@ -44,6 +44,8 @@ class BlogsController < ApplicationController
 
     def list
       @blogs = Blog.all
+      #いいねした人の人数の数え方がわかったら、ここを記載する
+      #@favo_count = Favorite.where(blog_id:      )
     end
   
     private
