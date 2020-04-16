@@ -86,3 +86,8 @@ a:hover{
 .field{
     margin:15px;
 }
+.user-icon{
+    height: 30px;
+    width: 30px;
+    border-radius: 50%; 
+}

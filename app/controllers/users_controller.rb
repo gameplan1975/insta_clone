@@ -36,7 +36,7 @@ class UsersController < ApplicationController
       @user.destroy
       redirect_to users_url, notice: 'ユーザー登録を削除しました'
     end
-  
+ 
     private
       def set_user
         @user = User.find(params[:id])

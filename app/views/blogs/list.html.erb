@@ -1,15 +1,6 @@
 <div class="body-content">
-    <h3>
-        <% if current_user.user_image? %>
-            <%= image_tag current_user.user_image.url, class:'user-icon' %>
-        <% else %>
-            <%= image_tag "/assets/face00.jpg", :size =>'30x30' %>
-        <% end %>
-        <%= current_user.name %>の投稿一覧(index)
-    </h3>
-    <p><%= link_to '投稿する', new_blog_path %> |
-        <%= link_to '他ユーザーの投稿を見る', "/blogs/list" %>
-    </p>
+    <h3>全ユーザーの投稿一覧(List)</h3>
+    <%= link_to '自分の投稿一覧に戻る', blogs_path %>
     <% @blogs.each do |blog| %>
         <div class="body-frame">
             <% if blog.blog_image? %>

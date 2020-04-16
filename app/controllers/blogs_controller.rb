@@ -1,11 +1,13 @@
 class BlogsController < ApplicationController
-    before_action :set_blog, only: [:show, :edit, :update, :destroy]
+    before_action :set_blog, only: [:show, :edit, :update, :destroy, :note]
 
     def index
-      @blogs = Blog.all
+      @blogs = Blog.where(user_id: current_user.id)
     end
-  
+
     def show
+      @blog = Blog.find_by(id: params[:id])
+      @user = User.find_by(id: @blog.user_id)
     end
   
     def new
@@ -37,6 +39,10 @@ class BlogsController < ApplicationController
     def destroy
       @blog.destroy
       redirect_to blogs_url, notice: '投稿を削除しました'
+    end
+
+    def list
+      @blogs = Blog.all
     end
   
     private

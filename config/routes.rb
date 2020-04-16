@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get 'sessions/new'
   get "/" => "blogs#top"
+  get "blogs/list" => "blogs#list"
   resources :sessions, only: [:new, :create, :destroy]
   resources :users
   resources :blogs do
