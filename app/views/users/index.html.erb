@@ -4,6 +4,8 @@
         <div class="body-frame">
             <% if user.user_image? %>
                 <%= image_tag user.user_image.url %>
+            <% else %>
+                <img src="/assets/face00.jpg">
             <% end %>
             <br>
             <%= user.name %><br>

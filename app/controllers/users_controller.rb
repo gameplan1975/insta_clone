@@ -17,10 +17,7 @@ class UsersController < ApplicationController
   
     def create
       @user = User.new(user_params)
-      @user.user_image = "face00.jpg"
-      @user.pr = "自己紹介を書いてください"
-      @user.address = "住所を書いてください"
-        if @user.save
+      if @user.save
         redirect_to user_path(@user.id), notice: 'ユーザー登録が完了しました'
       else
         render :new

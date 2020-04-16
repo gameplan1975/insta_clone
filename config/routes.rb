@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
   get 'sessions/new'
   get "/" => "blogs#top"
-  resources :blogs
   resources :sessions, only: [:new, :create, :destroy]
   resources :users
+  resources :blogs do
+    post 'add' => 'favorites#create'
+    delete '/add' => 'favorites#destroy'
+  end
     #resources :blogs do
     #collection do
     #post :confirm
