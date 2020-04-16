@@ -1,22 +1,11 @@
 class FavoritesController < ApplicationController
     def create
-        user=current_user
-        blog=Blog.find(params[:post_id])
-        if Favorite.create(user_id: user.id,blog_id:blog.id)
-        redirect_to blog
-        else
-          redirect_to root_url
-        end
+      @favorite = Favorite.new(user_id: current_user.id, blog_id: params[:blog_id])
+      @favorite.save
+      redirect_to("/blogs/#{params[:blog_id]}")
     end
     
     def destroy
-        user=current_user
-        blog= Blog.find(params[:post_id])
-        if favorite=Favorite.find_by(user_id: user.id,blog_id:blog.id)
-            favorite.delete
-            redirect_to users_path(current_user)
-        else
-          redirect_to root_url
-        end
+        
     end
 end

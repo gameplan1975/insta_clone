@@ -54,7 +54,7 @@ class BlogsController < ApplicationController
       def protect
         @blog = Blog.find_by(id:params[:id])
         @blog.user_id != current.user.id
-        redirect_to("/"), notice: "権限がありません"
+        redirect_to "/", notice: "権限がありません"
       end        
   
       def blog_params
