@@ -1,5 +1,6 @@
 class BlogsController < ApplicationController
-    before_action :set_blog, only: [:show, :edit, :update, :destroy, :note]
+  before_action :protect, only: [:edit, :update, :destroy]
+  before_action :set_blog, only: [:show, :edit, :update, :destroy]
 
     def index
       @blogs = Blog.where(user_id: current_user.id)
@@ -49,6 +50,12 @@ class BlogsController < ApplicationController
       def set_blog
         @blog = Blog.find(params[:id])
       end
+
+      def protect
+        @blog = Blog.find_by(id:params[:id])
+        @blog.user_id != current.user.id
+        redirect_to("/"), notice: "権限がありません"
+      end        
   
       def blog_params
         params.require(:blog).permit(:content, :blog_image, :blog_image_cache, :user_id)

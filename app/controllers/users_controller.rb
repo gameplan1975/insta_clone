@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+    before_action :protect, only: [:edit, :update, :destroy]
     before_action :set_user, only: [:show, :edit, :update, :destroy]
 
     def index
@@ -41,6 +42,12 @@ class UsersController < ApplicationController
       def set_user
         @user = User.find(params[:id])
       end
+
+      def protect
+        @blog = Blog.find_by(id:params[:id])
+        @blog.user_id != current.user.id
+        redirect_to("/"), notice: "権限がありません"
+      end 
   
       def user_params
         params.require(:user).permit(:name, :email, :password_digest, :pr, :address, :user_image, :password, :password_confirmation,

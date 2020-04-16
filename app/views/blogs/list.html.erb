@@ -1,4 +1,5 @@
 <div class="body-content">
+    <p id="notice"><%= notice %></p>
     <h3>全ユーザーの投稿一覧(List)</h3>
     <%= link_to '自分の投稿一覧に戻る', blogs_path %>
     <% @blogs.each do |blog| %>
@@ -17,8 +18,6 @@
             <%= blog.user.name %>が投稿</p>
             <div style="text-align:right">
                 <%= link_to '詳細', blog %>
-                <%= link_to '編集', edit_blog_path(blog) %>
-                <%= link_to '削除', blog, method: :delete, data: { confirm: '削除しますか？' } %>
             </div>
         </div>
     <% end %>
