@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :blogs 
   post "favorites/:blog_id/create" => "favorites#create"
   post "favorites/:blog_id/destroy" => "favorites#destroy"
+  mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
     #resources :blogs do
     #collection do
     #post :confirm
